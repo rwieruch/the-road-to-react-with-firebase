@@ -25,21 +25,17 @@ Each route represents a page in your application. For instance, the sign up page
 
 First of all, you will have a **sign up page** and a **sign in page**. You can take any web application out there as the blueprint to structure these routes for an authentication mechanism. For instance, take the following scenario: A user visits your web application. The user is convinced by your service and finds the button in the navigation bar to sign in to your application. But the user has no account yet, so a sign up button is presented as an alternative on the sign in page.
 
-{{% pin_it_image "react firebase sign in](img/posts/complete-firebase-authentication-react-tutorial/sign.jpg](is-src-set)
+![react firebase sign in](images/sign.jpg)
 
 Second, there will be a **landing page** and a **home page**. The landing page is your root route. That's the place where a user ends up when visiting your web application by default. The user doesn't need to be authenticated to visit this route. On the other hand, the home page is a so called **protected route**. The user can only access it when being authenticated. You will implement the protection of the route by using authorization in this tutorial.
 
 Third, there will be a protected **account page** as well. On this page, a user can reset a password or change a password. It is secured by authorization as well and thus only reachable for authenticated.
 
-<div class="row">
-  <div class="col-xs-8 col-centered">
-    {{% pin_it_image "react firebase account](img/posts/complete-firebase-authentication-react-tutorial/account.jpg](is-src-set)
-  </div>
-</div>
+![react firebase account](images/account.jpg)
 
 Last but not least, the password forget component will be exposed on another non protected page, a **password forget page**, as well. It is used for users who are not authenticated and forgot about their password.
 
-{{% pin_it_image "react firebase password](img/posts/complete-firebase-authentication-react-tutorial/password-reset.jpg](is-src-set)
+![react firebase password](images/password-reset.jpg)
 
 Now all of these routes need to be accessible to the user. How to get started with the routing in React? The best way to start is implementing a Navigation component which is used in the App component. The App component is the perfect place to render the Navigation component, because it will always render the Navigation component but replace the other components (pages) based on the mapped route. Basically, the App component is the container where all your fixed components are going (navigation bar, side bar, footer) but also your components which are displayed depending on the route in the URL.
 

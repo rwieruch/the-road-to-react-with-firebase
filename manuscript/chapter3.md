@@ -8,15 +8,11 @@ It's time to sign up for an account on the [Firebase website](https://firebase.g
 
 Once your project is created on their website, you should have a dashboard for it. There you can find a menu item which says "Authentication". Select it and click "Sign-In Method" menu item afterward. There you can enable the authentication with Email/Password. This tutorial will cover the basic authentication with email and password, but feel free to add other authentication methods later on. If you do so and open source your project, you can link it in the comments below for other readers of this guide.
 
-{{% pin_it_image "firebase authentication methods](img/posts/complete-firebase-authentication-react-tutorial/firebase-authentication-methods.jpg](is-src-set)
+![firebase authentication methods](images/firebase-authentication-methods.jpg)
 
 Next, you need to find your configuration in the project settings on your dashboard. There you have access to all the necessary information: secrets, keys, ids and other properties. You will copy these in the next step to your React application.
 
-<div class="row">
-  <div class="col-xs-8 col-centered">
-    {{% pin_it_image "firebase config](img/posts/complete-firebase-authentication-react-tutorial/firebase-config.jpg](is-src-set)
-  </div>
-</div>
+![firebase config](images/firebase-config.jpg)
 
 The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is somewhere there! Take it as opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration :)
 
