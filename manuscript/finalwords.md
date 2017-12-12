@@ -1,0 +1,3 @@
+# Outline
+
+Hopefully, the guide has helped you to implement your own authentication and authorization mechanism in React with Firebase. If you have any suggestions or improvements, please reach out to me. Again, if the tutorial didn't explain everything in detail, then it was because most those things are already covered in my [(partly free) courses](https://roadtoreact.com/) and the other referenced articles. The tutorial builds up on top of these learning materials, so make sure to check them out to learn everything about React, Redux, and MobX.
