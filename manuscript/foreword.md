@@ -18,7 +18,7 @@ Please help me out if the tutorial needs any updates in order to keep it reliabl
 
 You may wonder that there is no word about MobX or Redux. Indeed, it could be used to manage the client-side state for the authenticated user. But it isn't necessary to use one of those libraries. React's local state is absolutely sufficient to handle the state for the authenticated user. I just wanted to point it out again, because **a lot of people associate authentication in React immediately with Redux or MobX. Yet the article will showcase it initially without using any of these state management libraries**. However, in the end, the article will show you as bonus how to upgrade your application using Redux or MobX for the session handling.
 
-A lot of thanks goes to [Andrew]() and [Jaypal Singh](https://github.com/jaypal) for reviwing the tutorial. THis kind of supports helps me a lot to keep the material approachable and in great quality.
+A lot of thanks goes to [Andrew](https://github.com/andrew-secret) and [Jaypal](https://github.com/jaypal) for reviewing the tutorial. This kind of support helps me a lot to keep the material approachable and in great quality.
 
 ## Requirements
 
