@@ -250,11 +250,12 @@ In the previous sections, you have set up all the routes for your application, c
 
 Let's start with the sign up page. It consists of the page, a form, and a link. Whereas the form is used to sign up a new user to your application, the link will be used later on the sign in page when a user has no account yet. It is only a redirect to the sign up page, but not used on the sign up page itself. Still, it shares the same domain and therefore shares the same file as the sign up page and sign up form.
 
-
 {title="src/components/SignUp.js",lang=javascript}
 ~~~~~~~~
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import * as routes from '../constants/routes';
 
 const SignUpPage = () =>
   <div>
@@ -455,6 +456,7 @@ Of course, the user is only allowed to sign up if both passwords are the same (p
 # leanpub-start-insert
 import { auth } from '../firebase';
 # leanpub-end-insert
+import * as routes from '../constants/routes';
 
 ...
 
@@ -511,9 +513,7 @@ import {
 } from 'react-router-dom';
 
 import { auth } from '../firebase';
-# leanpub-start-insert
 import * as routes from '../constants/routes';
-# leanpub-end-insert
 
 # leanpub-start-insert
 const SignUpPage = ({ history }) =>
