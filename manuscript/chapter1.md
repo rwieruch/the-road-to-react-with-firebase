@@ -40,7 +40,7 @@ cd src
 mkdir components
 ~~~~~~~~
 
-Next, move the App component and all its related files to the *components/* folder. That way, you will start off with a well structured folder/file hierarchy.
+Next, move the App component and all its related files to the *components/* folder. That way, you will start off with a well-structured folder/file hierarchy.
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
