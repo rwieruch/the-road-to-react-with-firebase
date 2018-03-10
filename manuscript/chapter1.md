@@ -50,7 +50,7 @@ mv App.css components/
 mv logo.svg components/
 ~~~~~~~~
 
-Last but not least, fix the relative path to the App component in the *src/index.js* file. Since you have moved the App component, you need to add the */components* subpath.
+Last, but not least, fix the relative path to the App component in the *src/index.js* file. Since you have moved the App component, you need to add the */components* subpath.
 
 {title="src/index.js",lang=javascript}
 ~~~~~~~~
