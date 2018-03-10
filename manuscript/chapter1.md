@@ -68,4 +68,4 @@ registerServiceWorker();
 
 Next, run your application on the command line again. It should work again and be accessible in the browser for you. Make yourself familiar with it if you haven't used create-react-app before.
 
-Before implementing the authentication in React, it would be great to have a couple of pages (e.g. sign-up page, sign-in page) to split up the application on multiple URLs (routes). Therefore, let's implement the routing with React Router first before diving into Firebase and the authentication afterward.
+Before implementing the authentication in React, it would be great to have a couple of pages (e.g. sign-up page, sign-in page) to split up the application into multiple URLs (routes). Therefore, let's implement the routing with React Router first before diving into Firebase and the authentication afterward.
