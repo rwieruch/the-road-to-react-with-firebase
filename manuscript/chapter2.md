@@ -168,7 +168,7 @@ So if a route matches a path, the respective component will be displayed. Thus a
 touch Landing.js Home.js Account.js SignUp.js SignIn.js SignOut.js PasswordForget.js PasswordChange.js
 ~~~~~~~~
 
-In each component, define a simple boilerplate component as functional, stateless component. That's sufficient for now. These components will be filled with business logic later on. For instance, the component for the Landing page could be defined as follows.
+In each component, define a simple boilerplate component as a functional, stateless component. That's sufficient for now. These components will be filled with business logic later on. For instance, the component for the Landing page could be defined as follows.
 
 {title="src/components/Landing.js",lang=javascript}
 ~~~~~~~~
