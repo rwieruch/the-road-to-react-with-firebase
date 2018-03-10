@@ -33,7 +33,7 @@ Third, there will be a protected **account page** as well. On this page, a user 
 
 ![Account Page](images/account.jpg)
 
-Last, but not least, the password forget component will be exposed on another non protected page, a **password forget page**, as well. It is used for users who are not authenticated and forgot about their password.
+Last, but not least, the password forget component will be exposed on another non-protected page, a **password forget page**, as well. It is used for users who are not authenticated and forgot about their password.
 
 ![Password Forget Page](images/password-reset.jpg)
 
