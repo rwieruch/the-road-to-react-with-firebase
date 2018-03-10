@@ -17,7 +17,7 @@ create-react-app react-firebase-authentication
 cd react-firebase-authentication
 ~~~~~~~~
 
-Now you have the following commands on your command line to start and test your application. Unfortunately the tutorial doesn't cover testing yet.
+Now you have the following commands on your command line to start and test your application. Unfortunately, the tutorial doesn't cover testing yet.
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
