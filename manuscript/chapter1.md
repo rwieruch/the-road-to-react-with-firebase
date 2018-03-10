@@ -1,6 +1,6 @@
 # React Application Setup: create-react-app
 
-You are going to implement a whole authentication mechanism in React with sign up, sign in and sign out. Furthermore, it should be possible to reset a password or change a password as a user. The latter option is only available for an authenticated user. Last but not least, it should be possible to protect certain routes (URLs) to be only used by authenticated users. Therefore you will build a proper authorization solution around it.
+You are going to implement a whole authentication mechanism in React with sign up, sign in and sign out. Furthermore, it should be possible to reset a password or change a password as a user. The latter option is only available for an authenticated user. Last, but not least, it should be possible to protect certain routes (URLs) to be only used by authenticated users. Therefore you will build a proper authorization solution around it.
 
 The application will be bootstrapped with Facebook's official React boilerplate project [create-react-app](https://github.com/facebookincubator/create-react-app). You can install it once globally on the command line and make use of it whenever you want afterward.
 
