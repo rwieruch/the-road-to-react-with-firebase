@@ -1,6 +1,6 @@
 # React Router and Routes
 
-The following application should have multiple routes for the authentication mechanism but also for the application domain itself. Therefore, you can create a file to consolidate all the routes of your application in well defined constants. Keep it in a constants folder to add more of those files eventually.
+The following application should have multiple routes for the authentication mechanism but also for the application domain itself. Therefore, you can create a file to consolidate all the routes of your application in well-defined constants. Keep it in a constants folder to add more of those files eventually.
 
 {title="Command Line: src/",lang="text"}
 ~~~~~~~~
