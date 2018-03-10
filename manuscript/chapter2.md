@@ -39,7 +39,7 @@ Last, but not least, the password forget component will be exposed on another no
 
 Now, all of these routes need to be accessible to the user. How to get started with the routing in React? The best way to start is by implementing a Navigation component which is used in the App component. The App component is the perfect place to render the Navigation component, because it will always render the Navigation component but replace the other components (pages) based on the mapped route. Basically, the App component is the container where all your fixed components are going (navigation bar, side bar, footer) but also your components which are displayed depending on the route in the URL.
 
-First, refactor your App component as follows: It will use the Navigation component and wraps it already in the Router component provided by React Router. The Router makes it possible to navigate from URL-to-URL on the client-side application without making requests to a webserver. Thus the applications need to be requested only once from the server and do the routing only on the client-side.
+First, refactor your App component as follows: It will use the Navigation component and wraps it already in the Router component provided by React Router. The Router makes it possible to navigate from URL-to-URL on the client-side application, without making requests to a webserver. Thus the applications need to be requested only once from the server and do the routing only on the client-side.
 
 {title="src/components/App.js",lang=javascript}
 ~~~~~~~~
