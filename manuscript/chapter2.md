@@ -92,7 +92,7 @@ const Navigation = () =>
 export default Navigation;
 ~~~~~~~~
 
-Now, run your application again and verify two things: The links need to show up in your browser; and once you click a link, the URL has to change. However, even though the URL changes, the displayed content doesn't change. Let's implement this behavior.
+Now, run your application again and verify two things: The links need to show up in your browser; and once you click a link, the URL has to change. However, notice that even though the URL changes, the displayed content doesn't change. Let's implement this behavior.
 
 In your App component, you can specify which components should show up according to corresponding routes with the help of the Route component from React Router.
 
