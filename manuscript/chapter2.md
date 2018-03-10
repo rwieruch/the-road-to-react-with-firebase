@@ -56,7 +56,7 @@ const App = () =>
 export default App;
 ~~~~~~~~
 
-In addition, you can remove the *logo.svg* because it isn't used anymore. Moreover, it is up to you to keep the *App.css* file to style your application in between of this tutorial.
+In addition, you can remove the *logo.svg* image, because it isn't used anymore. Moreover, it is up to you to keep the *App.css* file to style your application in between of this tutorial.
 
 {title="Command Line: src/components/",lang="text"}
 ~~~~~~~~
