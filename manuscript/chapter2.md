@@ -27,7 +27,7 @@ First of all, you will have a **sign-up page** and a **sign-in page**. You can t
 
 ![Sign In](images/sign.jpg)
 
-Second, there will be a **landing page** and a **home page**. The landing page is your root route. That's the place where a user ends up when visiting your web application by default. The user doesn't need to be authenticated to visit this route. On the other hand, the home page is a so called **protected route**. The user can only access it when being authenticated. You will implement the protection of the route by using authorization in this tutorial.
+Second, there will be a **landing page** and a **home page**. The landing page is your root route. That's the place where a user ends up when visiting your web application by default. The user doesn't need to be authenticated to visit this route. On the other hand, the home page is a so-called **protected route**. The user can only access it when being authenticated. You will implement the protection of the route by using authorization in this tutorial.
 
 Third, there will be a protected **account page** as well. On this page, a user can reset a password or change a password. It is secured by authorization as well and thus only reachable for authenticated.
 
