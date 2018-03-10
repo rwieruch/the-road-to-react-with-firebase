@@ -21,7 +21,7 @@ export const ACCOUNT = '/account';
 export const PASSWORD_FORGET = '/pw-forget';
 ~~~~~~~~
 
-Each route represents a page in your application. For instance, the sign up page should be reachable in development mode via *http://localhost:3000/signup* and in production mode via *http://yourdomain/signup*. Let's walk through the routes step by step.
+Each route represents a page in your application. For instance, the sign-up page should be reachable in development mode via *http://localhost:3000/signup* and in production mode via *http://yourdomain/signup*. Let's walk through the routes step by step.
 
 First of all, you will have a **sign up page** and a **sign in page**. You can take any web application out there as the blueprint to structure these routes for an authentication mechanism. For instance, take the following scenario: A user visits your web application. The user is convinced by your service and finds the button in the navigation bar to sign in to your application. But the user has no account yet, so a sign up button is presented as an alternative on the sign in page.
 
