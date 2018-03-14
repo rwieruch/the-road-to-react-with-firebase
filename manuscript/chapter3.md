@@ -170,7 +170,7 @@ export const doCreateUserWithEmailAndPassword = (email, password) =>
 # leanpub-end-insert
 ~~~~~~~~
 
-Second, the sign in function which takes a email and password as well. It uses again a Firebase endpoint to sign in a user.
+Second, the sign-in function which takes a email and password as well. It uses again a Firebase endpoint to sign in a user.
 
 {title="src/firebase/auth.js",lang=javascript}
 ~~~~~~~~
