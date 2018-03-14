@@ -33,7 +33,7 @@ So what's the deal with all those files? Here comes an overview from top to bott
 
 * **auth.js:** The file where the Firebase authentication API will be defined to sign up, sign in, sign out etc. a user in your application. It is the interface between the official Firebase API and your React application.
 
-Let's start with the configuration. First, copy the configuration from your Firebase dashboard on their website to your application in a configuration object. Make sure to replace the caps lock part with your own copied configuration.
+Let's start with the configuration. First, copy the configuration from your Firebase dashboard on their website to your application in a configuration object. Make sure to replace the capitalized keys with your own copied configuration.
 
 {title="src/firebase/firebase.js",lang=javascript}
 ~~~~~~~~
