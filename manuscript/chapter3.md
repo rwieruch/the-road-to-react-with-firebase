@@ -148,7 +148,7 @@ Great! You have initialized Firebase in your application. In the next part, you 
 
 ## Firebase's Authentication API
 
-In the previous section, you have created a Firebase project on the official Firebase website and enabled the authentication with email and password. Now you will implement the authentication API. You can read up all functionalities that are exposed by the API in the official Firebase documentation.
+In the previous section, you have created a Firebase project on the official Firebase website and enabled the authentication with email and password. Now you will implement the authentication API. You can read up on all functionalities that are exposed by the API in the official Firebase documentation.
 
 Initially, import the previously instantiated auth object from the Firebase configuration file.
 
