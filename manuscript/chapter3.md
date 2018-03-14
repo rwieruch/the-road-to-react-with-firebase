@@ -99,7 +99,7 @@ export {
 # leanpub-end-insert
 ~~~~~~~~
 
-That's it for the configurational part. There is one last optional step. On the Firebase website, you could create a second project. Afterward, your first project could be used as your development database and your second project as your production database. That way, you never mix up your data from development mode with your data from your deployed application (production mode). The step is optional.
+That's it for the configuration part. There is one last optional step. On the Firebase website, you could create a second project. Afterward, your first project could be used as your development database and your second project as your production database. That way, you never mix up your data from development mode with your data from your deployed application (production mode). The step is optional.
 
 {title="src/firebase/firebase.js",lang=javascript}
 ~~~~~~~~
