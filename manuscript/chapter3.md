@@ -6,7 +6,7 @@ TODO: Write introdcution to this larger section.
 
 It's time to sign up for an account on the [Firebase website](https://firebase.google.com/). After you have created an account, you should be able to create a new project that will be used for your application on their platform. You can give your project any name. Furthermore, you can run it on the free plan.
 
-Once your project is created on their website, you should have a dashboard for it. There you can find a menu item which says "Authentication". Select it and click "Sign-In Method" menu item afterward. There you can enable the authentication with Email/Password. This tutorial will cover the basic authentication with email and password, but feel free to add other authentication methods later on. If you do so and open source your project, you can link it in the comments below for other readers of this guide.
+Once your project is created on their website, you should have a dashboard for it. There you can find a menu item which says "Authentication". Select it, and click "Sign-In Method" menu item afterward. There you can enable the authentication with Email/Password. This tutorial will cover the basic authentication with email and password, but feel free to add other authentication methods later on. If you do so and open source your project, you can link it in the comments below for other readers of this guide.
 
 ![Firebase Website - Authentication Methods](images/firebase-authentication-methods.jpg)
 
