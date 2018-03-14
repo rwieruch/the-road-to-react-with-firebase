@@ -14,7 +14,7 @@ Next, you need to find your configuration in the project settings on your dashbo
 
 ![Firebase Website - Project Configuration](images/firebase-config.jpg)
 
-The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is there, somewhere! Take it as an opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration :)
+The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is there, somewhere! Take it as an opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration. :)
 
 That's it for the Firebase website setup. Now you can return to your application in your editor to add the Firebase configuration. Therefore, create a couple of files in a new dedicated Firebase folder.
 
