@@ -210,7 +210,7 @@ export const doSignOut = () =>
 # leanpub-end-insert
 ~~~~~~~~
 
-Last but not least, the two optional functions to reset and change a password of an authenticated user.
+Last, but not least, the two optional functions to reset and change a password of an authenticated user.
 
 {title="src/firebase/auth.js",lang=javascript}
 ~~~~~~~~
