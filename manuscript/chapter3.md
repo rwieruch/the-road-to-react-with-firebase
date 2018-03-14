@@ -229,7 +229,7 @@ export const doPasswordUpdate = (password) =>
 # leanpub-end-insert
 ~~~~~~~~
 
-That's it for the whole authentication interface for your React components to be connected to the Firebase API. It covers all the use cases for the purpose of this tutorial. Finally, you should expose the implemented authentication methods and the Firebase functionalities itself form your Firebase module.
+That's it for the whole authentication interface for your React components to be connected to the Firebase API. It covers all the use cases for the purpose of this tutorial. Finally, you should expose the implemented authentication methods and the Firebase functionalities itself from your Firebase module.
 
 {title="src/firebase/index.js",lang=javascript}
 ~~~~~~~~
