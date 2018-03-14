@@ -157,7 +157,7 @@ Initially, import the previously instantiated auth object from the Firebase conf
 import { auth } from './firebase';
 ~~~~~~~~
 
-Now, let's define all the authentication functions step by step. First, the sign up function. It takes email and password parameters in its function signature and uses an official Firebase endpoint from the firebase object to create a user.
+Now, let's define all the authentication functions step by step. First, the sign-up function. It takes email and password parameters in its function signature and uses an official Firebase endpoint from the firebase object to create a user.
 
 {title="src/firebase/auth.js",lang=javascript}
 ~~~~~~~~
