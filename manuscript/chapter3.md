@@ -187,7 +187,7 @@ export const doSignInWithEmailAndPassword = (email, password) =>
 # leanpub-end-insert
 ~~~~~~~~
 
-At this point, note that these endpoints are called asynchronously. They need to be resolved later on. In addition, there needs to be error handling for it. For instance, it is not possible to sign in a user which is not signed up yet. The Firebase API would return an error. You will implement all of this in a later part of this tutorial.
+At this point, note that these endpoints are called asynchronously. They need to be resolved later on. In addition, there needs to be error handling for it. For instance, it is not possible to sign in a user who is not signed up yet. The Firebase API would return an error. You will implement all of this in a later part of this tutorial.
 
 Third, the sign out function. You don't need to pass any argument to it, because the auth object itself knows about the currently authenticated user (if a user is authenticated in the first place).
 
