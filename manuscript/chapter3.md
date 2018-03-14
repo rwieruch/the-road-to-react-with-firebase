@@ -248,7 +248,7 @@ That way, consumers (React components in our case) should be only allowed to acc
 
 In the previous sections, you have set up all the routes for your application, configured Firebase and implemented the authentication API. Now it is about time to use the authentication functionalities in your React components. Let's build the components from scratch. I try to put most of the code in one block at this point, because the components are not too small and splitting it up step by step could be too verbose. Nevertheless, I will guide you through each code block afterward. At some point, the code blocks for forms can become repetitive. Thus they will be explained once well enough in the beginning, but later in a similar version reused.
 
-Let's start with the sign-up page. It consists of the page, a form, and a link. Whereas the form is used to sign up a new user to your application, the link will be used later on the sign-in page when a user has no account yet. It is only a redirect to the sign-up page, but not used on the sign-up page itself. Still, it shares the same domain and therefore shares the same file as the sign-up page and sign up form.
+Let's start with the sign-up page. It consists of the page, a form, and a link. Whereas the form is used to sign up a new user to your application, the link will be used later on the sign-in page when a user has no account yet. It is only a redirect to the sign-up page, but not used on the sign-up page itself. Still, it shares the same domain and therefore shares the same file as the sign-up page and sign-up form.
 
 {title="src/components/SignUp.js",lang=javascript}
 ~~~~~~~~
