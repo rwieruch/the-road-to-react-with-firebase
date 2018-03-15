@@ -6,7 +6,7 @@ TODO: Write introdcution to this larger section.
 
 It's time to sign up for an account on the [Firebase website](https://firebase.google.com/). After you have created an account, you should be able to create a new project that will be used for your application on their platform. You can give your project any name. Furthermore, you can run it on the free plan.
 
-Once your project is created on their website, you should have a dashboard for it. There you can find a menu item which says "Authentication". Select it and click "Sign-In Method" menu item afterward. There you can enable the authentication with Email/Password. This tutorial will cover the basic authentication with email and password, but feel free to add other authentication methods later on. If you do so and open source your project, you can link it in the comments below for other readers of this guide.
+Once your project is created on their website, you should have a dashboard for it. There you can find a menu item which says "Authentication". Select it, and click the "Sign-In Method" menu item afterward. There you can enable the Email/Password authentication method. This tutorial will cover the basic authentication with email and password, but feel free to add other authentication methods later on. If you do so and open source your project, you can link it in the comments below for other readers of this guide.
 
 ![Firebase Website - Authentication Methods](images/firebase-authentication-methods.jpg)
 
@@ -14,9 +14,9 @@ Next, you need to find your configuration in the project settings on your dashbo
 
 ![Firebase Website - Project Configuration](images/firebase-config.jpg)
 
-The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is somewhere there! Take it as opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration :)
+The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is there, somewhere! Take it as an opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration. :)
 
-That's it for the Firebase website setup. Now you can return to your application in your editor to add the Firebase configuration. Therefore, create a couple of files in a new dedicated Firebase folder.
+That's it for the Firebase website setup. Now you can return to your application in your editor to add the Firebase configuration. So, create a couple of files in a new dedicated Firebase folder.
 
 {title="Command Line: src/",lang="text"}
 ~~~~~~~~
@@ -25,7 +25,7 @@ cd firebase
 touch index.js firebase.js auth.js
 ~~~~~~~~
 
-So what's the matter with all those files? Here comes an overview from top to bottom:
+So what's the deal with all those files? Here comes an overview from top to bottom:
 
 * **index.js:** It's a simple entry point file to the Firebase module (*src/firebase/* folder) by grouping and exposing all the functionalities from the module to other modules in one file. Thus it shouldn't be necessary for other modules in your application to access any other file than this one to use its functionalities.
 
@@ -33,7 +33,7 @@ So what's the matter with all those files? Here comes an overview from top to bo
 
 * **auth.js:** The file where the Firebase authentication API will be defined to sign up, sign in, sign out etc. a user in your application. It is the interface between the official Firebase API and your React application.
 
-Let's start with the configuration. First, copy the configuration from your Firebase dashboard on their website to your application in a configuration object. Make sure to replace the caps lock part with your own copied configuration.
+Let's start with the configuration. First, copy the configuration from your Firebase dashboard on their website to your application in a configuration object. Make sure to replace the capitalized keys with the corresponding keys from your own copied configuration.
 
 {title="src/firebase/firebase.js",lang=javascript}
 ~~~~~~~~
@@ -99,7 +99,7 @@ export {
 # leanpub-end-insert
 ~~~~~~~~
 
-That's it for the configurational part. There is one last optional step. On the Firebase website, you could create a second project. Afterward, your first project could be used as your development database and your second project as your production database. That way, you never mix up your data from development mode with your data from your deployed application (production mode). The step is optional.
+That's it for the configuration part. There is one last optional step. On the Firebase website, you could create a second project. Afterward, your first project could be used as your development database and your second project as your production database. That way, you never mix up your data from development mode with your data from your deployed application (production mode). The step is optional.
 
 {title="src/firebase/firebase.js",lang=javascript}
 ~~~~~~~~
@@ -148,7 +148,7 @@ Great! You have initialized Firebase in your application. In the next part, you 
 
 ## Firebase's Authentication API
 
-In the previous section, you have created a Firebase project on the official Firebase website and enabled the authentication with email and password. Now you will implement the authentication API. You can read up all functionalities that are exposed by the API in the official Firebase documentation.
+In the previous section, you have created a Firebase project on the official Firebase website and enabled the authentication with email and password. Now you will implement the authentication API. You can read up on all functionalities that are exposed by the API in the official Firebase documentation.
 
 Initially, import the previously instantiated auth object from the Firebase configuration file.
 
@@ -157,7 +157,7 @@ Initially, import the previously instantiated auth object from the Firebase conf
 import { auth } from './firebase';
 ~~~~~~~~
 
-Now, let's define all the authentication functions step by step. First, the sign up function. It takes email and password parameters in its function signature and uses an official Firebase endpoint from the firebase object to create a user.
+Now, let's define all the authentication functions step by step. First, the sign-up function. It takes email and password parameters in its function signature and uses an official Firebase endpoint from the firebase object to create a user.
 
 {title="src/firebase/auth.js",lang=javascript}
 ~~~~~~~~
@@ -170,7 +170,7 @@ export const doCreateUserWithEmailAndPassword = (email, password) =>
 # leanpub-end-insert
 ~~~~~~~~
 
-Second, the sign in function which takes a email and password as well. It uses again a Firebase endpoint to sign in a user.
+Second, the sign-in function which takes email and password parameters, as well. It also uses a Firebase endpoint to sign in a user.
 
 {title="src/firebase/auth.js",lang=javascript}
 ~~~~~~~~
@@ -187,9 +187,9 @@ export const doSignInWithEmailAndPassword = (email, password) =>
 # leanpub-end-insert
 ~~~~~~~~
 
-At this point note that these endpoints are called asynchronously. They need to be resolved later on. In addition, there needs to be error handling for it. For instance, it is not possible to sign in a user which is not signed up yet. The Firebase API would return an error. You will implement all of this in a later part of this tutorial.
+At this point, note that these endpoints are called asynchronously. They need to be resolved later on. In addition, there needs to be error handling for it. For instance, it is not possible to sign in a user who is not signed up yet. The Firebase API would return an error. You will implement all of this in a later part of this tutorial.
 
-Third, the sign out function. You don't need to pass any argument to it, because the auth object itself knows about the currently authenticated user (if a user is authenticated in the first place).
+Third, the sign-out function. You don't need to pass any argument to it, because the auth object itself knows about the currently authenticated user (if a user is authenticated in the first place).
 
 {title="src/firebase/auth.js",lang=javascript}
 ~~~~~~~~
@@ -210,7 +210,7 @@ export const doSignOut = () =>
 # leanpub-end-insert
 ~~~~~~~~
 
-Last but not least, the two optional functions to reset and change a password of an authenticated user.
+Last, but not least, the two optional functions to reset and change a password of an authenticated user:
 
 {title="src/firebase/auth.js",lang=javascript}
 ~~~~~~~~
@@ -229,7 +229,7 @@ export const doPasswordUpdate = (password) =>
 # leanpub-end-insert
 ~~~~~~~~
 
-That's it for the whole authentication interface for your React components to be connected to the Firebase API. It covers all the use cases for the purpose of this tutorial. Finally, you should expose the implemented authentication methods and the Firebase functionalities itself form your Firebase module.
+That's it for the whole authentication interface for your React components to be connected to the Firebase API. It covers all the use cases for the purpose of this tutorial. Finally, you should expose the implemented authentication methods and the Firebase functionalities itself from your Firebase module.
 
 {title="src/firebase/index.js",lang=javascript}
 ~~~~~~~~
@@ -242,13 +242,13 @@ export {
 };
 ~~~~~~~~
 
-That way, consumers (React components in our case) should be only allowed to access the *index.js* file as interface to the whole Firebase module (*src/firebase/*) and should not access the auth or firebase files directly.
+That way, consumers (React components in our case) should be only allowed to access the *index.js* file as the sole interface to the entire Firebase module (*src/firebase/*),  and should not access the auth or firebase files directly.
 
 ## Sign Up with React and Firebase
 
 In the previous sections, you have set up all the routes for your application, configured Firebase and implemented the authentication API. Now it is about time to use the authentication functionalities in your React components. Let's build the components from scratch. I try to put most of the code in one block at this point, because the components are not too small and splitting it up step by step could be too verbose. Nevertheless, I will guide you through each code block afterward. At some point, the code blocks for forms can become repetitive. Thus they will be explained once well enough in the beginning, but later in a similar version reused.
 
-Let's start with the sign up page. It consists of the page, a form, and a link. Whereas the form is used to sign up a new user to your application, the link will be used later on the sign in page when a user has no account yet. It is only a redirect to the sign up page, but not used on the sign up page itself. Still, it shares the same domain and therefore shares the same file as the sign up page and sign up form.
+Let's start with the sign-up page. It consists of the page, a form, and a link. Whereas the form is used to sign up a new user to your application, the link will be used later on the sign-in page when a user has no account yet. It is only a redirect to the sign-up page, but not used on the sign-up page itself. Still, it shares the same domain and therefore shares the same file as the sign-up page and sign-up form.
 
 {title="src/components/SignUp.js",lang=javascript}
 ~~~~~~~~
@@ -259,7 +259,7 @@ import * as routes from '../constants/routes';
 
 const SignUpPage = () =>
   <div>
-    <h1>SignUp</h1>
+    <h1>Sign Up</h1>
     <SignUpForm />
   </div>
 
@@ -298,7 +298,7 @@ export {
 
 In the next step, let's focus on the SignUpForm component. It is the only React ES6 class component in the file, because it has to manage the form state in React's local state. There are two pieces missing in the current SignUpForm component: the form content in terms of input fields to capture the information (email address, password, etc.) and the implementation of the onSubmit class method when a user signs up eventually.
 
-First, let's initialize the state of the component. It will capture the user information such as username, email, and password. There will be two password fields for a password confirmation step. In addition, there is an error state to capture an error object in case of the sign up request to the Firebase API fails. The state is initialized by an object destructuring.
+First, let's initialize the state of the component. It will capture the user information such as username, email, and password. There will be two password fields for a password confirmation step. In addition, there is an error state to capture an error object in case of the sign-up request to the Firebase API fails. The state is initialized by an object destructuring.
 
 {title="src/components/SignUp.js",lang=javascript}
 ~~~~~~~~
