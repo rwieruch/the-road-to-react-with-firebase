@@ -89,7 +89,7 @@ const rootStore = new RootStore();
 export default rootStore;
 ~~~~~~~~
 
-The MobX setup is done. Now, you can connect your state layer with your view layer. All the MobX stores can be provided to the component hierarchy by using MobX's bridging Provider component. We will use an object spread operator here to pass all combined stores to the Provider component. Keep in mind that this way the root store isn't available in the component hierarchy, but only the combined stores. That's sufficient for the tutorial, but if you want to have access to the root store as well, you need to pass it to the Provider component too.
+The MobX setup is done. Now, you can connect your state layer with your view layer. All the MobX stores can be provided to the component hierarchy by using MobX's bridging Provider component. It's not the Provider component you have created before on your own by using React's context API, but this time a Provider component from a MobX library passing down the all stores instead of the authenticated user. The stores (e.g. user store) will keep track of the authenticated user for you. We will use an object spread operator here to pass all combined stores to the Provider component. Keep in mind that this way the root store isn't available in the component hierarchy, but only the combined stores. That's sufficient for the tutorial, but if you want to have access to the root store as well, you need to pass it to the Provider component too.
 
 {title="src/index.js",lang=javascript}
 ~~~~~~~~
@@ -176,7 +176,7 @@ export default compose(
 
 Now the users are managed with MobX rather than in React’s local state. You have connected the state from MobX with the view layer.
 
-What about the session state layer which should be handled by the session store? Essentially you will refactor it the same way as the user state layer before. You will replace the provider pattern, where the authenticated user is stored in React’s context, with the state layer from MobX, where the authenticated user will be stored in the session store. Thus, instead of passing the authenticated user object down via React’s context, you pass it down via the MobX's session store by providing the store in a parent component (via the Provider component, which you already did) and connecting it to the components that care about the authenticated user (e.g. Navigation, Account).
+What about the session state layer which should be handled by the session store? Essentially you will refactor it the same way as the user state layer before. You will replace your own Provider and Consumer components, where the authenticated user was reached through all components by using React's context API, where the authenticated user will be stored in the session store. Thus, instead of passing the authenticated user object down via React’s context, you pass it down via the MobX's session store by providing the store in a parent component. You already provided the stores in a parent component by using the custom Provider component from mobx-react. Afterward, you can connect all the components that care about the authenticated user (e.g. Navigation, Account) to it.
 
 The most important component to store the authenticated user object in the MobX session store rather than in React’s context is the `withAuthentication()` higher order component. We can refactor it to use the MobX session store instead of React’s context by connecting it to the state layer.
 
@@ -349,4 +349,4 @@ const withAuthorization = (condition) => (Component) => {
 export default withAuthorization;
 ~~~~~~~~
 
-That's it. In this section, you have introduced MobX as state management library to manage your session and user state. Instead of relying on React's context for the authenticated user object and React's local state for the list of users from the Firebase database, you are storing these objects in the MobX stores. You can find the project with a slightly different folder structure in this [GitHub repository](https://github.com/rwieruch/react-mobx-firebase-authentication).
+That's it. In this section, you have introduced MobX as state management library to manage your session and user state. Instead of relying on React's context API for the authenticated user object and React's local state for the list of users from the Firebase database, you are storing these objects in the MobX stores. You can find the project with a slightly different folder structure in this [GitHub repository](https://github.com/rwieruch/react-mobx-firebase-authentication).

@@ -114,7 +114,7 @@ const rootReducer = combineReducers({
 export default rootReducer;
 ~~~~~~~~
 
-You have already passed the root reducer with all its reducers to the Redux store creation. The Redux setup is done. Now, you can connect your state layer with your view layer. The Redux store can be provided to the component hierarchy by using Redux's bridging Provider component.
+You have already passed the root reducer with all its reducers to the Redux store creation. The Redux setup is done. Now, you can connect your state layer with your view layer. The Redux store can be provided to the component hierarchy by using Redux's bridging Provider component. It's not the Provider component you have created before on your own by using React's context API, but this time a Provider component from a Redux library passing down the whole store instead of the authenticated user. The store will keep track of the authenticated user for you.
 
 {title="src/index.js",lang=javascript}
 ~~~~~~~~
@@ -210,7 +210,7 @@ export default compose(
 
 Now the users are managed with Redux rather than in React's local state. You have connected the state and actions of Redux with the view layer.
 
-What about the session state layer which should be handled by the session reducer? Essentially you will refactor it the same way as the user state layer before. You will replace the provider pattern, where the authenticated user is stored in React's context, with the state layer from Redux, where the authenticated user will be stored in the Redux store. Thus, instead of passing the authenticated user object down via React's context, you pass it down via the global Redux store by providing the store in a parent component (via the Provider component, which you already did) and connecting it to the components that care about the authenticated user (e.g. Navigation, Account).
+What about the session state layer which should be handled by the session reducer? Essentially you will refactor it the same way as the user state layer before. You will replace your own Provider and Consumer components, where the authenticated user was reached through all components by using React's context API, with the state layer from Redux where the authenticated user will be stored in the Redux store instead. Thus, instead of passing the authenticated user object down via React's context, you pass it down via the global Redux store by providing the store in a parent component. You already provided the store in a parent component by using the custom Provider component from react-redux. Afterward, you can connect all the components that care about the authenticated user (e.g. Navigation, Account) to it.
 
 The most important component to store the authenticated user object in the Redux store rather than in React's context is the `withAuthentication()` higher order component. We can refactor it to use the Redux store instead of React's context by connecting it to the state layer.
 
@@ -391,4 +391,4 @@ const withAuthorization = (condition) => (Component) => {
 export default withAuthorization;
 ~~~~~~~~
 
-That's it. In this section, you have introduced Redux as state management library to manage your session and user state. Instead of relying on React's context for the authenticated user object and React's local state for the list of users from the Firebase database, you are storing these objects in the Redux store. You can find the project with a slightly different folder structure in this [GitHub repository](https://github.com/rwieruch/react-redux-firebase-authentication).
+That's it. In this section, you have introduced Redux as state management library to manage your session and user state. Instead of relying on React's context API for the authenticated user object and React's local state for the list of users from the Firebase database, you are storing these objects in the Redux store. You can find the project with a slightly different folder structure in this [GitHub repository](https://github.com/rwieruch/react-redux-firebase-authentication).

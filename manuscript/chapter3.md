@@ -14,7 +14,7 @@ Next, you need to find your configuration in the project settings on your dashbo
 
 ![Firebase Website - Project Configuration](images/firebase-config.jpg)
 
-The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is there, somewhere! Take it as an opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration. :)
+The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is somewhere there! Take it as opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration.
 
 That's it for the Firebase website setup. Now you can return to your application in your editor to add the Firebase configuration. So, create a couple of files in a new dedicated Firebase folder.
 
@@ -246,7 +246,7 @@ That way, consumers (React components in our case) should be only allowed to acc
 
 ## Sign Up with React and Firebase
 
-In the previous sections, you have set up all the routes for your application, configured Firebase and implemented the authentication API. Now it is about time to use the authentication functionalities in your React components. Let's build the components from scratch. I try to put most of the code in one block at this point, because the components are not too small and splitting it up step by step could be too verbose. Nevertheless, I will guide you through each code block afterward. At some point, the code blocks for forms can become repetitive. Thus they will be explained once well enough in the beginning, but later in a similar version reused.
+In the previous sections, you have set up all the routes for your application, configured Firebase and implemented the authentication API. Now it is about time to use the authentication functionalities in your React components. Let's build the components from scratch. I try to put most of the code in one block at this point, because the components are not too small and splitting them up step by step could be too verbose. Nevertheless, I will guide you through each code block afterward. At some point, the code blocks for forms can become repetitive. Thus they will be explained once well enough in the beginning, but later in a similar version reused.
 
 Let's start with the sign-up page. It consists of the page, a form, and a link. Whereas the form is used to sign up a new user to your application, the link will be used later on the sign-in page when a user has no account yet. It is only a redirect to the sign-up page, but not used on the sign-up page itself. Still, it shares the same domain and therefore shares the same file as the sign-up page and sign-up form.
 
@@ -868,7 +868,7 @@ class App extends Component {
 export default App;
 ~~~~~~~~
 
-The helper function `onAuthStateChanged()` gets a function as input and this function has access to the authenticated user object. In addition, this passed function is called **every time** something changed for the authenticated user. It is called when a user signs up (because it results in a sign in), signs in and signs out. If a user signs out, the `authUser` object is null. Thus the `authUser` property in the local state is set to null as well and as reaction components depending on it can display different options (e.g. Navigation component).
+The helper function `onAuthStateChanged()` gets a function as input and this function has access to the authenticated user object. In addition, this passed function is called **every time** something changed for the authenticated user. It is called when a user signs up (because it results in a sign in), signs in and signs out. If a user signs out, the `authUser` object becomes null. Thus the `authUser` property in the local state is set to null as well and as reaction components depending on it can display different options (e.g. Navigation component).
 
 Start your application again and verify that your sign up, sign in and sign out works properly and that the Navigation components displays the options depending on the session state accordingly.
 
@@ -878,11 +878,11 @@ The recent sections were quite a lot of content. I didn't go into all the detail
 
 ## Session Handling in React with Higher Order Components
 
-In this section, we will abstract the session handling away with higher order components and the React's provider pattern. It has two advantages:
+In this section, we will abstract the session handling away with higher order components and React's context API. It has two advantages:
 
-* The higher order component fulfils only one purpose. It shields away the business logic from the App component. Thus the App component stays lightweight. There is no business logic mixed up in the component anymore. Higher order components are a great concept in React to extract logic from components, but use them later on to enhance components with it. Therefore they are a great way to accomplish reusability, composability and often maintainability in React.
+* The higher order component fulfils only one purpose. It shields away the business logic from the App component. Thus the App component stays lightweight. There is no business logic mixed up in the component anymore. Higher order components are a great concept in React to extract logic from components, but you can use them later on to enhance components with it. Therefore, they are a great way to accomplish reusability, composability and often maintainability in React.
 
-* The [provider pattern in React](https://www.robinwieruch.de/react-provider-pattern-context/) is a React concept which helps us to pass around properties in our application by using React's context. Rather than passing props explicitly down to all components who are interested in them, you can pass these props implicitly down to these components without bothering the components in between of the hierarchy. Thus, in our case, the App component doesn't need to bother about the authenticated user object anymore, because it only passes it down to various other components.
+* [React's context API](https://www.robinwieruch.de/react-context-api/) is a React concept which helps us to pass around properties in our application. Rather than passing props explicitly down to all components who are interested in them, you can pass these props implicitly down to these components without bothering the components in between of the hierarchy. Thus, in our case, the App component doesn't need to bother about the authenticated user object anymore, because it only passes it down to various other components.
 
 First, you can revert the recent changes in the App component. It can become a functional stateless component again. It doesn't need to know about the authenticated user object anymore.
 
@@ -981,7 +981,7 @@ import React from 'react';
 import { firebase } from '../firebase';
 # leanpub-end-insert
 
-const withAuthentication = (Component) => {
+const withAuthentication = (Component) =>
   class WithAuthentication extends React.Component {
 # leanpub-start-insert
     constructor(props) {
@@ -1007,27 +1007,24 @@ const withAuthentication = (Component) => {
       );
     }
   }
-
-  return WithAuthentication;
-}
 
 export default withAuthentication;
 ~~~~~~~~
 
 If you are not familiar with higher order components, make sure to read this [gentle introduction](https://www.robinwieruch.de/gentle-introduction-higher-order-components/). It gives you an approachable way to learn about them.
 
-Third, there needs to be a mechanism to pass down the authenticated user object to the other components (e.g. Navigation component). As mentioned, we will use React's provider pattern with the context object. Adjust your session handling higher order component to the following.
+Fourth, there needs to be a mechanism to pass down the authenticated user object to the other components (e.g. Navigation component). As mentioned, we will use React's context API for it. Adjust your session handling higher order component to the following.
 
 {title="src/components/withAuthentication.js",lang=javascript}
 ~~~~~~~~
 import React from 'react';
-# leanpub-start-insert
-import PropTypes from 'prop-types';
-# leanpub-end-insert
 
+# leanpub-start-insert
+import AuthUserContext from './AuthUserContext';
+# leanpub-end-insert
 import { firebase } from '../firebase';
 
-const withAuthentication = (Component) => {
+const withAuthentication = (Component) =>
   class WithAuthentication extends React.Component {
     constructor(props) {
       super(props);
@@ -1036,14 +1033,6 @@ const withAuthentication = (Component) => {
         authUser: null,
       };
     }
-
-# leanpub-start-insert
-    getChildContext() {
-      return {
-        authUser: this.state.authUser,
-      };
-    }
-# leanpub-end-insert
 
     componentDidMount() {
       firebase.auth.onAuthStateChanged(authUser => {
@@ -1054,51 +1043,64 @@ const withAuthentication = (Component) => {
     }
 
     render() {
+# leanpub-start-insert
+      const { authUser } = this.state;
+
       return (
-        <Component />
+        <AuthUserContext.Provider value={authUser}>
+          <Component />
+        </AuthUserContext.Provider>
       );
+# leanpub-end-insert
     }
   }
-
-# leanpub-start-insert
-  WithAuthentication.childContextTypes = {
-    authUser: PropTypes.object,
-  };
-# leanpub-end-insert
-
-  return WithAuthentication;
-}
 
 export default withAuthentication;
 ~~~~~~~~
 
-That's it for the higher order component. Last but not least, the only consumer of the authenticated user object, the Navigation component, needs to know about the change from passing the object via context rather than props. Even though the Navigation component is a functional stateless component, it can access React's context in its second argument in the function signature. The props are not used anymore.
+As you may have noticed, there is some kind of mysterious Provider component coming from an imported `AuthUserContext` object. You will see in the next step where this object comes from and how it is implemented. For the previous code snippet, it is important to know that this Provider component can make its value accessible to all the components below. So if you would pass the App component this higher order component, then the App component and all components below of it would have access to the value. Since the value is the authenticated user or null, all components below can act accordingly to it.
+
+So where does the AuthUserContext come from? Let's implement it in a new file:
+
+{title="Command Line: src/components/",lang="text"}
+~~~~~~~~
+touch AuthUserContext.js
+~~~~~~~~
+
+Now, you can put in the following content to create the context object by using React's context API. You have access to the API by using the `createContext()` function. You can pass an initial value argument to the function, but since the authenticated user should be null in the beginning, passing null to it is just fine.
+
+{title="src/components/AuthUserContext.js",lang=javascript}
+~~~~~~~~
+import React from 'react';
+
+const AuthUserContext = React.createContext(null);
+
+export default AuthUserContext;
+~~~~~~~~
+
+That's it. You have implemented a higher order component which got all the business logic for the authenticated user which was in the App component before. The higher order component is used already to enhance the App component with this same functionality. In addition, you have used React's context API to create a context object which exposes a Provider component for you. Once you use this Provider component, the value which you have passed to it becomes available to all components below the App component where the higher order component is used.
+
+ Last but not least, the only consumer of the authenticated user object so far, the Navigation component, needs to use the same `AuthUserContext` object to access the value of the context which you have passed to the Provider component. You can import the context object again, but this time use its Consumer component to make the value, which is the authenticated user, available to the Navigation component.
 
 {title="src/components/Navigation.js",lang=javascript}
 ~~~~~~~~
 import React from 'react';
-# leanpub-start-insert
-import PropTypes from 'prop-types';
-# leanpub-end-insert
 import { Link } from 'react-router-dom';
 
+# leanpub-start-insert
+import AuthUserContext from './AuthUserContext';
+# leanpub-end-insert
 import SignOutButton from './SignOut';
 import * as routes from '../constants/routes';
 
 # leanpub-start-insert
-const Navigation = (props, { authUser }) =>
-# leanpub-end-insert
-  <div>
-    { authUser
-        ? <NavigationAuth />
-        : <NavigationNonAuth />
+const Navigation = () =>
+  <AuthUserContext.Consumer>
+    {authUser => authUser
+      ? <NavigationAuth />
+      : <NavigationNonAuth />
     }
-  </div>
-
-# leanpub-start-insert
-Navigation.contextTypes = {
-  authUser: PropTypes.object,
-};
+  </AuthUserContext.Consumer>
 # leanpub-end-insert
 
 ...
@@ -1106,9 +1108,9 @@ Navigation.contextTypes = {
 export default Navigation;
 ~~~~~~~~
 
-Notice that you don't need to pass the authenticated user down from the App component anymore. It is passed through it implicitly by using React's context.
+Inside of the Consumer component, you are using a function instead of other components. That's called the render props pattern in React. If you are not familar with it, you can read up more about it over {{% a_blank "here" "https://reactjs.org/docs/render-props.html" %}}. What's important that it gives you access to the value which was passed before to the Provider pattern. Once the authenticated user in the `withAuthentication` higher order component changes, it changes as well as the passed value in the Provider component, and then also in the Consumer component. Notice that you don't need to pass the authenticated user down from the App component anymore. It is passed through it implicitly by using React's context.
 
-Now, start your application again and verify that it still works the same as before. You didn't change any behavior of your application in this section, but only shielded away the more complex logic into a higher order component and added the convenience of passing the authenticated user implicitly via React's context rather than explicitly through the whole component tree by using props. These are two advanced patterns in React and you have used both in this last section!
+Now, start your application again and verify that it still works the same as before. You didn't change any behavior of your application in this section, but only shielded away the more complex logic into a higher order component and added the convenience of passing the authenticated user implicitly via React's context rather than explicitly through the whole component tree by using props. These are two advanced patterns in React and you have used both in this last section.
 
 ## Password Reset and Password Change with Firebase
 
@@ -1315,25 +1317,25 @@ Now there is another neat implementation of your application. The password chang
 {title="src/components/Account.js",lang=javascript}
 ~~~~~~~~
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import AuthUserContext from './AuthUserContext';
 import { PasswordForgetForm } from './PasswordForget';
 import PasswordChangeForm from './PasswordChange';
 
-const AccountPage = (props, { authUser }) =>
-  <div>
-    <h1>Account: {authUser.email}</h1>
-    <PasswordForgetForm />
-    <PasswordChangeForm />
-  </div>
-
-AccountPage.contextTypes = {
-  authUser: PropTypes.object,
-};
+const AccountPage = () =>
+  <AuthUserContext.Consumer>
+    {authUser =>
+      <div>
+        <h1>Account: {authUser.email}</h1>
+        <PasswordForgetForm />
+        <PasswordChangeForm />
+      </div>
+    }
+  </AuthUserContext.Consumer>
 
 export default AccountPage;
 ~~~~~~~~
 
-The AccountPage component isn't complicated and doesn't have any business logic. It merely uses the password forget and password change forms in a central place. In addition, it gets access to the authenticated user object via React's context as well (same as the Navigation component) and thus can display the email address of the currently authenticated user.
+The AccountPage component isn't complicated and doesn't have any business logic. It merely uses the password forget and password change forms in a central place. In addition, it gets access to the authenticated user object via React's context by using the Consumer component again. It's identical to the Navigation component. So as you can see, you can use multiple Consumer components for the same context, but you have to ensure to have one Provider component somewhere above in your component hierarchy.
 
 That's it. Your user experience has improved significantly with the password forget and password change features. Users who have trouble with their password can use these features now.

@@ -25,11 +25,11 @@ npm start
 npm test
 ~~~~~~~~
 
-You can start your application and visit it in the browser. Afterward, let us install a couple of libraries on the command line which are needed for the authentication and the routing in the first place. You will use the official firebase node package for the authentication / database and react-router-dom (React Router) to enable multiple routes for your application. Furthermore, you will need the prop-types node package for React's context later on. You don't need to worry about it for now.
+You can start your application and visit it in the browser. Afterward, let us install a couple of libraries on the command line which are needed for the authentication and the routing in the first place. You will use the official firebase node package for the authentication / database and react-router-dom (React Router) to enable multiple routes for your application.
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
-npm install firebase prop-types react-router-dom
+npm install firebase react-router-dom
 ~~~~~~~~
 
 In addition, create a *components/* folder in your application's *src/* folder on the command. That's where all your components will be implemented eventually.
