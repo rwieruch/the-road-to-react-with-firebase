@@ -70,12 +70,12 @@ Finally, combine both stores in a root store. This can be used to make the store
 
 {title="src/stores/index.js",lang=javascript}
 ~~~~~~~~
-import { useStrict } from 'mobx';
+import { configure } from 'mobx';
 
 import SessionStore from './sessionStore';
 import UserStore from './userStore';
 
-useStrict(true);
+configure({ enforceActions: true });
 
 class RootStore {
   constructor() {
