@@ -52,7 +52,7 @@ Second, import the firebase object from the firebase node package which you have
 {title="src/firebase/firebase.js",lang=javascript}
 ~~~~~~~~
 # leanpub-start-insert
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 # leanpub-end-insert
 
 const config = {
@@ -75,7 +75,10 @@ Third, initialize the auth object. That's the part of the Firebase API which wil
 
 {title="src/firebase/firebase.js",lang=javascript}
 ~~~~~~~~
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
+# leanpub-start-insert
+import 'firebase/auth';
+# leanpub-end-insert
 
 const config = {
   apiKey: YOUR_API_KEY,
@@ -103,7 +106,8 @@ That's it for the configuration part. There is one last optional step. On the Fi
 
 {title="src/firebase/firebase.js",lang=javascript}
 ~~~~~~~~
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 # leanpub-start-insert
 const prodConfig = {

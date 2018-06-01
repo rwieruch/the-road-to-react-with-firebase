@@ -43,7 +43,11 @@ You might have noticed that the file imports a database object from the *src/fir
 
 {title="src/firebase/firebase.js",lang=javascript}
 ~~~~~~~~
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+# leanpub-start-insert
+import 'firebase/database';
+# leanpub-end-insert
 
 ...
 
