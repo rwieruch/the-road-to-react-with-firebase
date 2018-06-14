@@ -1,4 +1,4 @@
-# React and Firebase [Book] [WIP]
+# The Road to React with Firebase
 
 The official repository for the Firebase in React book.
 
