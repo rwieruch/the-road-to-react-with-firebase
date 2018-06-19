@@ -1,4 +1,4 @@
-# The Road to React with Firebase [Book]
+# React and Firebase [Book]
 
 The official repository for [The Road to React with Firebase](https://roadtoreact.com/). If you want to leave a review, you can do it on [Goodreads](https://www.goodreads.com/book/show/37554560-the-road-to-react-with-firebase).
 
