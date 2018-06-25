@@ -1,5 +1,7 @@
 # React and Firebase [Book]
 
+[![Slack](https://slack-the-road-to-learn-react.wieruch.com/badge.svg)](https://slack-the-road-to-learn-react.wieruch.com/)
+
 The official repository for [The Road to React with Firebase](https://roadtoreact.com/). If you want to leave a review, you can do it on [Goodreads](https://www.goodreads.com/book/show/37554560-the-road-to-react-with-firebase).
 
 ## Updates, Help and Support
