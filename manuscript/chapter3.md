@@ -478,7 +478,7 @@ class SignUpForm extends Component {
 
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -550,7 +550,7 @@ class SignUpForm extends Component {
 
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
 # leanpub-start-insert
         history.push(routes.HOME);
 # leanpub-end-insert
@@ -636,7 +636,7 @@ class SignInForm extends Component {
 
     auth.doSignInWithEmailAndPassword(email, password)
       .then(() => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
         history.push(routes.HOME);
       })
       .catch(error => {
@@ -859,8 +859,8 @@ class App extends Component {
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
       authUser
-        ? this.setState(() => ({ authUser }))
-        : this.setState(() => ({ authUser: null }));
+        ? this.setState({ authUser })
+        : this.setState({ authUser: null });
     });
   }
 # leanpub-end-insert
@@ -999,8 +999,8 @@ const withAuthentication = (Component) =>
     componentDidMount() {
       firebase.auth.onAuthStateChanged(authUser => {
         authUser
-          ? this.setState(() => ({ authUser }))
-          : this.setState(() => ({ authUser: null }));
+          ? this.setState({ authUser })
+          : this.setState({ authUser: null });
       });
     }
 # leanpub-end-insert
@@ -1041,8 +1041,8 @@ const withAuthentication = (Component) =>
     componentDidMount() {
       firebase.auth.onAuthStateChanged(authUser => {
         authUser
-          ? this.setState(() => ({ authUser }))
-          : this.setState(() => ({ authUser: null }));
+          ? this.setState({ authUser })
+          : this.setState({ authUser: null });
       });
     }
 
@@ -1112,7 +1112,7 @@ const Navigation = () =>
 export default Navigation;
 ~~~~~~~~
 
-Inside of the Consumer component, you are using a function instead of other components. That's called the render props pattern in React. If you are not familar with it, you can read up more about it over {{% a_blank "here" "https://reactjs.org/docs/render-props.html" %}}. What's important that it gives you access to the value which was passed before to the Provider pattern. Once the authenticated user in the `withAuthentication` higher order component changes, it changes as well as the passed value in the Provider component, and then also in the Consumer component. Notice that you don't need to pass the authenticated user down from the App component anymore. It is passed through it implicitly by using React's context.
+Inside of the Consumer component, you are using a function instead of other components. That's called the render props pattern in React. If you are not familar with it, you can read up more about it over [here](https://reactjs.org/docs/render-props.html). What's important that it gives you access to the value which was passed before to the Provider pattern. Once the authenticated user in the `withAuthentication` higher order component changes, it changes as well as the passed value in the Provider component, and then also in the Consumer component. Notice that you don't need to pass the authenticated user down from the App component anymore. It is passed through it implicitly by using React's context.
 
 Now, start your application again and verify that it still works the same as before. You didn't change any behavior of your application in this section, but only shielded away the more complex logic into a higher order component and added the convenience of passing the authenticated user implicitly via React's context rather than explicitly through the whole component tree by using props. These are two advanced patterns in React and you have used both in this last section.
 
@@ -1156,7 +1156,7 @@ class PasswordForgetForm extends Component {
 
     auth.doPasswordReset(email)
       .then(() => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -1267,7 +1267,7 @@ class PasswordChangeForm extends Component {
 
     auth.doPasswordUpdate(passwordOne)
       .then(() => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
