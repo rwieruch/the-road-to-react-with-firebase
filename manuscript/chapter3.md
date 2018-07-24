@@ -350,6 +350,7 @@ class SignUpForm extends Component {
 
   ...
 
+# leanpub-start-insert
   render() {
     const {
       username,
@@ -358,6 +359,7 @@ class SignUpForm extends Component {
       passwordTwo,
       error,
     } = this.state;
+# leanpub-end-insert
 
     return (
       <form onSubmit={this.onSubmit}>
