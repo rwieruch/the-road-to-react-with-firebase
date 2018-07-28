@@ -350,8 +350,8 @@ class SignUpForm extends Component {
 
   ...
 
-# leanpub-start-insert
   render() {
+# leanpub-start-insert
     const {
       username,
       email,
