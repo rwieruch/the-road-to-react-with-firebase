@@ -94,7 +94,7 @@ export default Navigation;
 
 Now, run your application again and verify two things: The links need to show up in your browser; and once you click a link, the URL has to change. However, notice that even though the URL changes, the displayed content doesn't change. Let's implement this behavior.
 
-In your App component, you can specify which components should show up according to corresponding routes with the help of the Route component from React Router. The Route component specifies a couple of ways in which you can instruct it what to render in case of a location match. The `component` prop specifies a React component to render and the `render` prop specifies a function to be called in case of a render. We will be using `render` props for the purpose of this tutorial.
+In your App component, you can specify which components should show up according to corresponding routes with the help of the Route component from React Router.
 
 {title="src/components/App.js",lang=javascript}
 ~~~~~~~~
@@ -132,27 +132,27 @@ const App = () =>
 
       <Route
         exact path={routes.LANDING}
-        render={() => <LandingPage />}
+        component={LandingPage}
       />
       <Route
         exact path={routes.SIGN_UP}
-        render={() => <SignUpPage />}
+        component={SignUpPage}
       />
       <Route
         exact path={routes.SIGN_IN}
-        render={() => <SignInPage />}
+        component={SignInPage}
       />
       <Route
         exact path={routes.PASSWORD_FORGET}
-        render={() => <PasswordForgetPage />}
+        component={PasswordForgetPage}
       />
       <Route
         exact path={routes.HOME}
-        render={() => <HomePage />}
+        component={HomePage}
       />
       <Route
         exact path={routes.ACCOUNT}
-        render={() => <AccountPage />}
+        component={AccountPage}
       />
     </div>
 # leanpub-end-insert
@@ -161,7 +161,7 @@ const App = () =>
 export default App;
 ~~~~~~~~
 
-So, if a route matches a path, the respective render function will be called which in turn will display the specified page component. Thus all the page components in the App component are exchangeable by changing the route, but the Navigation component stays fixed independently of any route change. Next, you have to create all these page components. You can do it again on the command line.
+So, if a route matches a path, the respective component will be displayed. Thus all the page components in the App component are exchangeable by changing the route, but the Navigation component stays fixed independently of any route change. Next, you have to create all these page components. You can do it again on the command line.
 
 {title="Command Line: src/components/",lang="text"}
 ~~~~~~~~
