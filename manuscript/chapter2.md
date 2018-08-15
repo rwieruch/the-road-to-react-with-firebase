@@ -132,27 +132,27 @@ const App = () =>
 
       <Route
         exact path={routes.LANDING}
-        component={() => <LandingPage />}
+        render={() => <LandingPage />}
       />
       <Route
         exact path={routes.SIGN_UP}
-        component={() => <SignUpPage />}
+        render={() => <SignUpPage />}
       />
       <Route
         exact path={routes.SIGN_IN}
-        component={() => <SignInPage />}
+        render={() => <SignInPage />}
       />
       <Route
         exact path={routes.PASSWORD_FORGET}
-        component={() => <PasswordForgetPage />}
+        render={() => <PasswordForgetPage />}
       />
       <Route
         exact path={routes.HOME}
-        component={() => <HomePage />}
+        render={() => <HomePage />}
       />
       <Route
         exact path={routes.ACCOUNT}
-        component={() => <AccountPage />}
+        render={() => <AccountPage />}
       />
     </div>
 # leanpub-end-insert
