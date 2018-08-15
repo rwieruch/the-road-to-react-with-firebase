@@ -917,12 +917,12 @@ const App = () =>
 
       <hr/>
 
-      <Route exact path={routes.LANDING} component={() => <LandingPage />} />
-      <Route exact path={routes.SIGN_UP} component={() => <SignUpPage />} />
-      <Route exact path={routes.SIGN_IN} component={() => <SignInPage />} />
-      <Route exact path={routes.PASSWORD_FORGET} component={() => <PasswordForgetPage />} />
-      <Route exact path={routes.HOME} component={() => <HomePage />} />
-      <Route exact path={routes.ACCOUNT} component={() => <AccountPage />} />
+      <Route exact path={routes.LANDING} component={LandingPage} />
+      <Route exact path={routes.SIGN_UP} component={SignUpPage} />
+      <Route exact path={routes.SIGN_IN} component={SignInPage} />
+      <Route exact path={routes.PASSWORD_FORGET} component={PasswordForgetPage} />
+      <Route exact path={routes.HOME} component={HomePage} />
+      <Route exact path={routes.ACCOUNT} component={AccountPage} />
     </div>
   </Router>
 
@@ -1130,6 +1130,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { auth } from '../firebase';
+import * as routes from '../constants/routes';
 
 const PasswordForgetPage = () =>
   <div>
@@ -1195,7 +1196,7 @@ class PasswordForgetForm extends Component {
 
 const PasswordForgetLink = () =>
   <p>
-    <Link to="/pw-forget">Forgot Password?</Link>
+    <Link to={routes.PASSWORD_FORGET}>Forgot Password?</Link>
   </p>
 
 export default PasswordForgetPage;
