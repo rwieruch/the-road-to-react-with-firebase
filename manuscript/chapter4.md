@@ -26,7 +26,7 @@ import React from 'react';
 const withAuthorization = () => (Component) => {
   class WithAuthorization extends React.Component {
     render() {
-      return <Component />;
+      return <Component {...this.props} />;
     }
   }
 
@@ -69,7 +69,10 @@ const withAuthorization = (authCondition) => (Component) => {
 # leanpub-start-insert
       return (
         <AuthUserContext.Consumer>
-          {authUser => authUser ? <Component /> : null}
+          {authUser => authUser
+            ? <Component {...this.props} />
+            : null
+          }
         </AuthUserContext.Consumer>
       );
 # leanpub-end-insert

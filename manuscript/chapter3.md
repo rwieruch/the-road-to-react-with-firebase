@@ -966,7 +966,7 @@ const withAuthentication = (Component) => {
   class WithAuthentication extends React.Component {
     render() {
       return (
-        <Component />
+        <Component {...this.props} />
       );
     }
   }
@@ -1009,7 +1009,7 @@ const withAuthentication = (Component) =>
 
     render() {
       return (
-        <Component />
+        <Component {...this.props} />
       );
     }
   }
@@ -1054,7 +1054,7 @@ const withAuthentication = (Component) =>
 
       return (
         <AuthUserContext.Provider value={authUser}>
-          <Component />
+          <Component {...this.props} />
         </AuthUserContext.Provider>
       );
 # leanpub-end-insert

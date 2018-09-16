@@ -241,7 +241,7 @@ const withAuthentication = (Component) => {
 
     render() {
       return (
-        <Component />
+        <Component {...this.props} />
       );
     }
   }
@@ -371,7 +371,9 @@ const withAuthorization = (condition) => (Component) => {
 
     render() {
 # leanpub-start-insert
-      return this.props.authUser ? <Component /> : null;
+      return this.props.authUser
+        ? <Component {...this.props} />
+        : null;
 # leanpub-end-insert
     }
   }

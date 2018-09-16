@@ -207,7 +207,7 @@ const withAuthentication = (Component) => {
 
     render() {
       return (
-        <Component />
+        <Component {...this.props} />
       );
     }
   }
@@ -332,7 +332,9 @@ const withAuthorization = (condition) => (Component) => {
 
     render() {
 # leanpub-start-insert
-      return this.props.sessionStore.authUser ? <Component /> : null;
+      return this.props.sessionStore.authUser
+        ? <Component {...this.props} />
+        : null;
 # leanpub-end-insert
     }
   }
